@@ -1,0 +1,56 @@
+<aura:component controller="AttributeSetController">
+	<aura:attribute name="attributeSets" type="List" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<!--
+    Use a data table from the Lightning Design System:
+    https://www.lightningdesignsystem.com/components/data-tables/
+  -->
+	<table
+		class="slds-table slds-table--bordered slds-table--resizable-cols slds-table--fixed-layout"
+		role="grid">
+		<thead>
+			<tr class="slds-line-height--reset">
+				<th scope="col" style="width: 3.25rem;"
+					class="slds-text-align--right">
+					<div class="slds-th__action slds-th__action--form">
+
+            <lightning:buttonIcon iconName="utility:chevronright" variant="bare" alternativeText="Close window." />
+
+					</div>
+				</th>
+				<th class="slds-is-sortable slds-is-resizable slds-text-title--caps"
+					scope="col"><a href="javascript:void(0);"
+					class="slds-th__action slds-text-link--reset" tabindex="0"> <span
+						class="slds-assistive-text">Sort </span> <span
+						class="slds-truncate" title="Name">Attribute Set Name</span> <span
+						class="slds-assistive-text" aria-live="assertive"
+						aria-atomic="true"></span>
+				</a>
+					<div class="slds-resizable">
+						<label for="cell-resize-handle-553" class="slds-assistive-text">Name
+							column width</label> <input type="range" min="20" max="1000"
+							class="slds-resizable__input slds-assistive-text"
+							id="cell-resize-handle-553" tabindex="0" /> <span
+							class="slds-resizable__handle"> <span
+							class="slds-resizable__divider"></span>
+						</span>
+					</div></th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Use the Apex model and controller to fetch server side data -->
+			<aura:iteration items="{!v.attributeSets}" var="attributeSet">
+      <tr class="slds-hint-parent">
+        <td role="gridcell" class="slds-text-align--right" style="width: 3.25rem;">
+            <lightning:buttonIcon iconName="utility:chevronright" variant="bare" alternativeText="Close window." />
+
+				</td>
+				<th scope="row">
+						<div class="slds-truncate" title="{!attributeSet.Name}">{!attributeSet.Name}</div>
+				</th>
+			</tr>
+			</aura:iteration>
+		</tbody>
+	</table>
+</aura:component>
