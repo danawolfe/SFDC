@@ -14,5 +14,20 @@
   handleAttributeSetClick: function(component, event, helper){
 	  //var attributeSetName = event.target.getElementsByClassName('attributeSet-name')[0].value;
 	  console.log('Clicked on attribute set' );
+  },
+  handleToggleExpand: function(component, event, helper){
+	  console.log('Clicked on Chevron' );
+	  var target = event.getSource();
+//	  console.log('target:' + target.get("v.iconName"));
+	  if (target.get("v.iconName") == "utility:chevronright"){
+		  target.set("v.iconName","utility:chevrondown");
+	  }
+	  else
+	  {
+		  target.set("v.iconName","utility:chevronright");
+	  }
+	  //target.set("v.iconName","utility:chevrondown")
+	  //console.log('iconName:' + target.toString() );
   }
+  
 })

@@ -3,11 +3,17 @@
     <types>
         <members>attributeSetApp</members>
         <members>AttributeSetList</members>
+        <members>AttributeSet</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
         <members>AttributeSetController</members>
+        <members>Attributes</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
     </types>
     <version>38.0</version>
 </Package>
