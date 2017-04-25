@@ -1,4 +1,4 @@
-<aura:component controller="AttributeSetController">
+<aura:component controller="AttributeSetListController">
     <aura:attribute name="attributeSets" type="List" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <!--
@@ -34,20 +34,17 @@
         </thead>
         <tbody>
             <!-- Use the Apex model and controller to fetch server side data -->
+             
             <aura:iteration items="{!v.attributeSets}" var="attributeSet">
-                <tr class="slds-hint-parent">
-        <td role="gridcell" class="slds-text-align--right" style="width: 3.25rem;">
+              <c:AttributeSet attributeSet="{!attributeSet}" />
+            
             <!-- 
-            <lightning:buttonIcon iconName="utility:chevronright" variant="bare" alternativeText="Expand Attribute Set" onclick="{!c.handleToggleExpand}" />
+              <c:AttributeSet  attributeSet="{!attributeSet.Id}"/>
+              <div>{!attributeSet.Name}</div>
+              
             -->
-        </td>
-        <th scope="row">
-            <div class="slds-truncate" title="{!attributeSet.Name}">{!attributeSet.Name}</div>
-        </th>
-                      <c:AttributeSet />
-    </tr>
-
             </aura:iteration>
+
         </tbody>
     </table>
 </aura:component>
